@@ -2,17 +2,23 @@ import { useState } from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Headphones from "./pages/Headphones.jsx";
+import ShopCategorys from "./pages/ShopCategorys.jsx";
+import ErorPage from "./pages/ErorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErorPage />,
   },
   {
-    path: "/headphones",
-    element: <Headphones />,
+    path: "/:category",
+    element: <ShopCategorys />,
   },
+  {
+    path: "/error",
+    element: <ErorPage />
+  }
 ]);
 
 function App() {
