@@ -12,11 +12,21 @@
   flex-direction: column;
 }
 header {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 100px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+header img{
+  position: absolute;
+}
+header .logo{
+  left: 0;
+}
+header .cart{
+  right: 0;
 }
 header ul {
   display: flex;
@@ -30,22 +40,22 @@ header ul {
   display: flex;
   align-items: center;
 }
-.new-product-text-box {
+.main-text-box {
   display: flex;
   flex-direction: column;
   color: #fff;
   gap: 24px;
 }
-.new-product-text-box h2 {
+.main-text-box h2 {
   font-size: 15px;
   letter-spacing: 8px;
   opacity: 0.5;
 }
-.new-product-text-box h1 {
+.main-text-box h1 {
   font-size: 56px;
   line-height: 50px;
 }
-.new-product-text-box p {
+.main-text-box p {
   font-size: 15px;
   opacity: 0.75;
 }
@@ -54,7 +64,7 @@ header ul {
   width: 160px;
   font-weight: 700;
 }
-.new-product-text-box .see-product {
+.main-text-box .see-product {
   margin-top: 16px;
   color: white;
   background-color: #D87D4A;
@@ -247,6 +257,12 @@ footer{
   gap: 36px;
   padding: 0 10%;
 }
+footer .line{
+  position: absolute;
+  width: 101px;
+  height: 4px;
+  background-color: #D87D4A;
+}
 footer .links{
   margin-top: 40px;
   display: flex;
@@ -277,4 +293,60 @@ footer .footer-end .social-media{
 footer .footer-end p{
   font-size: 15px;
   opacity: 0.5;
+}
+.categorys-header-box{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  padding: 0 10%;
+  background-color: #000;
+  color: #fff;
+}
+.categorys-header-box .content-wrapper{
+  justify-content: center;
+}
+.items-box{
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+.item{
+  width: 100%;
+  height: 560px;
+  display: flex;
+  align-items: center;
+}
+.item-reverse{
+  flex-direction: row-reverse;
+}
+.item img{
+  width: 540px;
+  height: 560px;
+  border-radius: 8px;
+}
+.item .container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-reverse .container{
+  justify-content: start;
+}
+.item .main-text-box{
+  width: 445px;
+}
+.item .main-text-box h2{
+  opacity: 1;
+  letter-spacing: 10px;
+  color: #D87D4A;
+}
+.item .main-text-box h1{
+  color: #000;
+}
+.item .main-text-box p{
+  color: #000;
 }
