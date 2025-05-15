@@ -13,10 +13,10 @@ const CardBox = () => {
           />
         </div>
         <h1>HEADPHONES</h1>
-        <Link to="/headphones">
+        <a href="/headphones">
           <h2>SHOP</h2>
           <img src="/assets/shared/desktop/icon-arrow-right.svg" alt="" />
-        </Link>
+        </a>
         <div className="card-bg"></div>
       </div>
       <div className="card">
@@ -28,10 +28,10 @@ const CardBox = () => {
           />
         </div>
         <h1>SPEAKERS</h1>
-        <Link to="/headphones">
+        <a href="/speakers">
           <h2>SHOP</h2>
           <img src="/assets/shared/desktop/icon-arrow-right.svg" alt="" />
-        </Link>
+        </a>
         <div className="card-bg"></div>
       </div>
       <div className="card">
@@ -43,10 +43,10 @@ const CardBox = () => {
           />
         </div>
         <h1>EARPHONES</h1>
-        <Link to="/headphones">
+        <a href="/earphones">
           <h2>SHOP</h2>
           <img src="/assets/shared/desktop/icon-arrow-right.svg" alt="" />
-        </Link>
+        </a>
         <div className="card-bg"></div>
       </div>
     </div>
