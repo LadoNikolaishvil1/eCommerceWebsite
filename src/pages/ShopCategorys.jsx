@@ -1,19 +1,23 @@
-import React from 'react'
-import data from '../data.json'
-import { useParams, Navigate } from "react-router-dom";
-import Header from '../components/header';
-import InfoBox from '../components/InfoBox';
-import CardBox from '../components/CardBox';
-import Footer from '../components/Footer';
+import data from "../data.json";
+import {
+  useParams,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
+import Header from "../components/header";
+import InfoBox from "../components/InfoBox";
+import CardBox from "../components/CardBox";
+import Footer from "../components/Footer";
 
 const validCategories = ["headphones", "earphones", "speakers"];
 
 const ShopCategorys = () => {
-    const { category } = useParams();
+  const { category } = useParams();
+  const navigate = useNavigate();
 
-    if (!validCategories.includes(category)) {
-      return <Navigate to="/error" />; 
-    }
+  if (!validCategories.includes(category)) {
+    return <Navigate to="/error" />;
+  }
 
   return (
     <main>
@@ -39,7 +43,15 @@ const ShopCategorys = () => {
                     {item.new && <h2>NEW PRODUCT</h2>}
                     <h1>{item.name.toUpperCase()}</h1>
                     <p>{item.description}</p>
-                    <button className="see-product">SEE PRODUCT</button>
+                    <button
+                      className="see-product"
+                      onClick={() => {
+                        navigate(`/shop/item/${item.id}`);
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      SEE PRODUCT
+                    </button>
                   </div>
                 </div>
               </div>
@@ -51,6 +63,6 @@ const ShopCategorys = () => {
       <Footer />
     </main>
   );
-}
+};
 
-export default ShopCategorys
+export default ShopCategorys;

@@ -5,6 +5,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
+  user-select: none;
+  transition:color 0.5s ease, background 0.5s ease, opacity 0.5s ease, transform 0.5s ease, z-index 0.5s ease;
+}
+
+main{
+  overflow-x: hidden;
 }
 
 img {
@@ -22,4 +28,13 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+}
+
+a:hover{
+  color: #d87d4a;
+  opacity: 1 !important;
+}
+
+a:hover h2{
+  opacity: 1;
 }

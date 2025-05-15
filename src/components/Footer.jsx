@@ -7,19 +7,19 @@ const Footer = () => {
       <div className="links">
         <img src="/assets/shared/desktop/logo.svg" alt="" />
         <ul>
-                <li>
-                  <a href="/">HOME</a>
-                </li>
-                <li>
-                  <a href="/headphones">HEADPHONES</a>
-                </li>
-                <li>
-                  <a href="/speakers">SPEAKERS</a>
-                </li>
-                <li>
-                  <a href="/earphones">EARPHONES</a>
-                </li>
-              </ul>
+          <li>
+            <a href="/">HOME</a>
+          </li>
+          <li>
+            <a href="/headphones">HEADPHONES</a>
+          </li>
+          <li>
+            <a href="/speakers">SPEAKERS</a>
+          </li>
+          <li>
+            <a href="/earphones">EARPHONES</a>
+          </li>
+        </ul>
       </div>
       <div className="text">
         <p>
