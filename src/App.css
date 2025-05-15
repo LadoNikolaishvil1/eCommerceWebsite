@@ -1,0 +1,280 @@
+.header-box {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0 10%;
+  background-color: #000;
+  background-image: url("/assets/home/desktop/image-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+header ul {
+  display: flex;
+  gap: 34px;
+  list-style-type: none;
+  color: #fff;
+  font-weight: 700;
+}
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.new-product-text-box {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 24px;
+}
+.new-product-text-box h2 {
+  font-size: 15px;
+  letter-spacing: 8px;
+  opacity: 0.5;
+}
+.new-product-text-box h1 {
+  font-size: 56px;
+  line-height: 50px;
+}
+.new-product-text-box p {
+  font-size: 15px;
+  opacity: 0.75;
+}
+.see-product{
+  padding: 14px 20px;
+  width: 160px;
+  font-weight: 700;
+}
+.new-product-text-box .see-product {
+  margin-top: 16px;
+  color: white;
+  background-color: #D87D4A;
+}
+section{
+  padding: 100px 10%;
+  gap: 168px;
+  display: flex;
+  flex-direction: column;
+}
+.card-box{
+  width: 100%;
+  height: 320px;
+  display: flex;
+  gap: 30px;
+}
+.card{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: end;
+  padding-bottom: 40px;
+}
+.card-bg{
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  background-color: #F1F1F1;
+  height: 230px;
+  width: 100%;
+  border-radius: 8px;
+}
+.card-img-box{
+  top: 0;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-img{
+  width: 250px;
+}
+.card h1{
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.card a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card a img{
+  width: 10px;
+  height: 15px;
+}
+.card h2{
+  font-size: 13px;
+  opacity: 0.5;
+}
+.products{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.Zx9-speaker{
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 8px;
+  background-color: #D87D4A;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  overflow: hidden;
+}
+.Zx9-speaker .speaker-img{
+  position: absolute;
+  width: 410px;
+  height: 500px;
+  bottom: -11px;
+  left: 190px;
+}
+.Zx9-speaker .circle{
+  width: 944px;
+  height: 944px;
+  position: absolute;
+  bottom: -340px;
+  left: -75px;
+}
+.Zx9-speaker div{
+  position: relative;
+  margin-right: 150px;
+  z-index: 2;
+}
+.Zx7-speaker{
+  width: 100%;
+  height: 320px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+  padding-left: 95px;
+}
+.Zx7-speaker h1{
+  font-size: 30px;
+}
+.Zx7-speaker .see-product{
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+}
+.Yx1-earphones{
+  width: 100%;
+  height: 320px;
+  display: flex;
+  gap: 30px;
+}
+.Yx1-earphones .img-box{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-image: url("/assets/home/desktop/image-earphones-yx1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Yx1-earphones .text-box{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  background-color: #F1F1F1;
+}
+.Yx1-earphones .text-box h1{
+  font-size: 30px;
+  margin-left: 95px;
+}
+.Yx1-earphones .text-box .see-product{
+  margin-left: 95px;
+  background: transparent;
+  border: 1px solid #000;
+}
+.info-box{
+  width: 100%;
+  height: 588px;
+  display: flex;
+  align-items: center;
+}
+.info-text{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.info-text h1{
+  font-size: 40px;
+  line-height: 44px;
+}
+.info-text span{
+  color: #D87D4A;
+}
+.info-text p{
+  font-size: 15px;
+  opacity: 0.5;
+}
+.info-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-image: url("/assets/shared/desktop/image-best-gear.jpg");
+}
+footer{
+  position: relative;
+  width: 100%;
+  height: 365px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 0 10%;
+}
+footer .links{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .links ul{
+  display: flex;
+  gap: 34px;
+  list-style-type: none;
+  font-weight: 700;
+}
+footer .text{
+  font-size: 15px;
+  opacity: 0.5;
+}
+footer .footer-end{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-end .social-media{
+  display: flex;
+  gap: 10px;
+  align-self: end;
+  bottom: 70px;
+}
+footer .footer-end p{
+  font-size: 15px;
+  opacity: 0.5;
+}
