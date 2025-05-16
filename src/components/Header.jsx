@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import { useCart } from "../hooks/useCart.jsx";
-import { useRef } from "react";
+import { useState } from "react";
 
-const Header = () => {
+const Header = ({ ableToAccessCart }) => {
   const { cart, setCart } = useCart();
-  const CartComponent = useRef(null);
+  const [showCart, setShowCart] = useState(false);
   const toggleCart = () => {
-    if (CartComponent.current) {
-      CartComponent.current.classList.toggle("active");
-      console.log("toggled");
-    }
+    setShowCart(!showCart);
   };
   return (
     <header>
@@ -29,15 +26,28 @@ const Header = () => {
           <Link to="/earphones">EARPHONES</Link>
         </li>
       </ul>
-      <div className="cart-box">
+      <div
+        className="cart-box"
+        style={{ pointerEvents: `${ableToAccessCart ? "none" : "all"}` }}
+      >
         <img
           className="cart"
           src="/assets/shared/desktop/icon-cart.svg"
           alt=""
           onClick={toggleCart}
         />
-        {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
-        <Cart ref={CartComponent} cart={cart} setCart={setCart} />
+        {cart.length > 0 && (
+          <span className="cart-count" onClick={toggleCart}>
+            {cart.length}
+          </span>
+        )}
+        <Cart
+          cart={cart}
+          setCart={setCart}
+          showCart={showCart}
+          setShowCart={setShowCart}
+          toggleCart={toggleCart}
+        />
       </div>
     </header>
   );
