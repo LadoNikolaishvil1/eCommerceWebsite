@@ -8,6 +8,7 @@ import { useCart } from "../hooks/useCart";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import SummaryPopUp from "../components/SummaryPopUp.jsx";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -17,12 +18,31 @@ const CheckoutPage = () => {
   const checkoutRef = useRef(null);
   const paymentDetailsRef = useRef(null);
   const [baseHeight, setBaseheight] = useState(null);
-  const [checkoutInfo, setCheckoutInfo] = useLocalStorage("checkoutInfo", [])
+  const [checkoutInfo, setCheckoutInfo] = useState([]);
+  const [finnishedCheckout, setFinnishedCheckout] = useState(false);
 
   useEffect(() => {
     const height = checkoutRef.current?.scrollHeight || 0;
     setBaseheight(height);
   }, []);
+
+  useEffect(() => {
+    if (cart.length <= 0) {
+      setFinnishedCheckout(false);
+    }
+  }, [cart]);
+
+  useEffect(() => {
+    if (finnishedCheckout) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [finnishedCheckout]);
 
   const {
     register,
@@ -57,7 +77,7 @@ const CheckoutPage = () => {
     eMoneyEl.style.display = "none";
     cashEl.style.display = "none";
 
-    checkoutEl.style.height = `${baseHeight}px`
+    checkoutEl.style.height = `${baseHeight}px`;
 
     requestAnimationFrame(() => {
       if (watchedPaymentMethod === "e-Money") {
@@ -82,11 +102,9 @@ const CheckoutPage = () => {
 
   const onSubmit = (data) => {
     setCheckoutInfo([...checkoutInfo, data]);
+    setFinnishedCheckout(true);
     reset();
   };
-  useEffect(()=>{
-    console.log(checkoutInfo)
-  },[checkoutInfo])
 
   return (
     <main style={{ background: "#F1F1F1" }}>
@@ -312,6 +330,9 @@ const CheckoutPage = () => {
         </form>
       </section>
       <Footer />
+      {finnishedCheckout && (
+        <SummaryPopUp cart={cart} grandTotal={GrandToatal} setCart={setCart} />
+      )}
     </main>
   );
 };
