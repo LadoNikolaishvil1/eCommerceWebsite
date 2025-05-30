@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "../data.json";
 import Header from "../components/header";
 import InfoBox from "../components/InfoBox";
@@ -16,6 +16,7 @@ const ItemPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
+  const [device, setDevice] = useState();
 
   if (!data.some((item) => item.id === parseInt(id))) {
     return <Navigate to="/error" />;
@@ -37,6 +38,26 @@ const ItemPage = () => {
       setCart([...cart, { ...item, quantity: count }]);
     }
   };
+
+    useEffect(() => {
+      const detectDevice = () => {
+        const width = window.innerWidth;
+        if (width < 768) {
+          setDevice("mobile");
+        } else if (width >= 768 && width <= 1024) {
+          setDevice("tablet");
+        } else {
+          setDevice("desktop");
+        }
+      };
+  
+      detectDevice();
+      window.addEventListener("resize", detectDevice);
+  
+      console.log(device);
+  
+      return () => window.removeEventListener("resize", detectDevice);
+    }, []);
   return (
     <main>
       <div className="item-header-box">
@@ -46,7 +67,7 @@ const ItemPage = () => {
         <div className="item-container">
           <h3 onClick={() => navigate(-1)}>Go Back</h3>
           <div className="item">
-            <img src={item.image.desktop} alt="" />
+            <img src={item.image[device]} alt="" />
             <div className="container">
               <div className="main-text-box">
                 {item.new && <h2>NEW PRODUCT</h2>}
@@ -95,28 +116,30 @@ const ItemPage = () => {
           <div className="in-the-box">
             <ul>
               <h1>IN THE BOX</h1>
-              {item.includes.map((item) => (
-                <li key={item.item}>
-                  <span>{item.quantity}x</span>
-                  <p>{item.item}</p>
-                </li>
-              ))}
+              <ul>
+                {item.includes.map((item) => (
+                  <li key={item.item}>
+                    <span>{item.quantity}x</span>
+                    <p>{item.item}</p>
+                  </li>
+                ))}
+              </ul>
             </ul>
           </div>
         </div>
         <div className="item-img-box">
           <div>
-            <img src={item.gallery.first.desktop} alt="" />
-            <img src={item.gallery.second.desktop} alt="" />
+            <img src={item.gallery.first[device]} alt="" />
+            <img src={item.gallery.second[device]} alt="" />
           </div>
-          <img src={item.gallery.third.desktop} alt="" />
+          <img src={item.gallery.third[device]} alt="" />
         </div>
         <div className="also-like">
           <h1>YOU MAY ALSO LIKE</h1>
           <div className="recommendations">
             {item.others.map((rec) => (
               <div className="recommendation-box" key={rec.slug}>
-                <img src={rec.image.desktop} alt="" />
+                <img src={rec.image[device]} alt="" />
                 <h1>{rec.name}</h1>
                 <button
                   className="see-product"

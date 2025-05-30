@@ -1,17 +1,48 @@
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import { useCart } from "../hooks/useCart.jsx";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import CardBox from "./CardBox.jsx";
 
 const Header = ({ ableToAccessCart }) => {
+  const burgerMenue = useRef(null);
   const { cart, setCart } = useCart();
+  const [showMenue, setShowMenue] = useState(false)
   const [showCart, setShowCart] = useState(false);
   const toggleCart = () => {
     setShowCart(!showCart);
   };
+  const toggleBurgerMenue = () => {
+    setShowMenue(!showMenue)
+  }
+
+  useEffect(() => {
+    if (showMenue) {
+      burgerMenue.current.classList.add("active");
+    } else {
+      burgerMenue.current.classList.remove("active");
+    }
+  }, [showMenue]);
+
   return (
     <header>
-      <img className="logo" src="/assets/shared/desktop/logo.svg" alt="" />
+      <div className="logo">
+        <div className="burger-menu">
+          <img
+            className="burger-menu-img"
+            src="/assets/shared/tablet/icon-hamburger.svg"
+            alt=""
+            onClick={toggleBurgerMenue}
+          />
+          <div className="card-container" ref={burgerMenue}>
+            <CardBox inHeader={true} />
+          </div>
+        </div>
+        <Link to="/">
+          <img src="/assets/shared/desktop/logo.svg" alt="" />
+        </Link>
+      </div>
+
       <ul>
         <li>
           <Link to="/">HOME</Link>
