@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CardBox = () => {
+const CardBox = ({ inHeader }) => {
   return (
-    <div className="card-box">
+    <div className={`card-box ${inHeader && "header-cad-box"}`}>
       <div className="card">
         <div className="card-img-box">
           <img

@@ -15,20 +15,43 @@ header {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   z-index: 6;
 }
+
 header .logo {
-  position: absolute;
-  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 42px;
 }
-.cart-box {
+
+.burger-menu{
+  display: none;
+}
+
+header ul {
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 34px;
+  list-style-type: none;
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+.cart-box {
+  position: relative;
   right: 0;
   overflow: visible;
+  z-index: 1;
 }
+
 .cart-box .cart {
   cursor: pointer;
 }
@@ -164,13 +187,6 @@ header .logo {
 }
 .cart-dropdow-box .see-product:hover {
   background-color: #fbaf85;
-}
-header ul {
-  display: flex;
-  gap: 34px;
-  list-style-type: none;
-  color: #fff;
-  font-weight: 700;
 }
 .content-wrapper {
   flex: 1;
@@ -403,7 +419,7 @@ section {
 footer {
   position: relative;
   width: 100%;
-  height: 365px;
+  min-height: 365px;
   background: #000;
   color: #fff;
   display: flex;
@@ -427,6 +443,9 @@ footer .links ul {
   gap: 34px;
   list-style-type: none;
   font-weight: 700;
+}
+.links a{
+  letter-spacing: 2px;
 }
 footer .text {
   font-size: 15px;
@@ -614,6 +633,8 @@ footer .footer-end p {
 .item-img-box div img {
   width: 100%;
   height: 100%;
+  aspect-ratio: auto;
+  object-fit: fill;
 }
 .also-like {
   width: 100%;
@@ -971,4 +992,319 @@ form {
 }
 .popUp-container .see-product:hover{
   background-color: #fbaf85;
+}
+@media screen and (width <= 1024px) {
+  header ul{
+    display: none;
+  }
+  .burger-menu{
+    display: block;
+  }
+  .burger-menu-img{
+    cursor: pointer;
+  }
+  .card-container{
+    right: -38px;
+    top: 100px;
+    position: absolute;
+    background-color: #fff;
+    width: calc(100% + 76px);
+    align-self: center;
+    padding: 38px 38px 67px 38px;
+    border-radius: 0 0 8px 8px;
+    transform: translateY(-100px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.2s ease, transform 0.35s ease, z-index 0.5s ease, box-shadow 0.5s ease;
+  }
+  .card-container.active{
+    transform: translateY(0);
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 1;
+    box-shadow: 0 0 70px rgba(0, 0, 0, 0.2);
+  }
+  .header-cad-box *{
+    color: #000;
+    z-index: 1;
+  }
+  .header-cad-box .card-bg{
+    z-index: 0;
+  }
+  .header-box{
+    padding: 0 38px;
+    background-image: url("/assets/home/tablet/image-header.jpg");
+  }
+  .categorys-header-box, .item-header-box{
+    padding: 0 38px;
+  }
+  .content-wrapper{
+    justify-content: center;
+  }
+  .content-wrapper .main-text-box{
+    text-align: center;
+    align-items: center;
+  }
+  section{
+    padding-right: 38px;
+    padding-left: 38px;
+    gap: 120px;
+  }
+  .card-box{
+    height: 275px;
+    gap: 10px;
+  }
+  .card{
+    padding-bottom: 20px;
+  }
+  .card *{
+    transform: scale(0.9);
+  }
+  .card .card-img-box{
+    transform: scale(0.8);
+  }
+  .card .card-bg{
+    height: 165px;
+    transform: scale(1);
+  }
+  .Zx9-speaker{
+    height: 720px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+  }
+  .Zx9-speaker .circle{
+    bottom: 64px;
+    left: auto;
+  }
+  .Zx9-speaker .speaker-img{
+    position: relative;
+    width: 200px;
+    height: 237px;
+    bottom: auto;
+    left: auto;
+  }
+  .Zx9-speaker div{
+    text-align: center;
+    margin-right: 0;
+    align-items: center;
+  }
+  .Zx7-speaker{
+    background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
+    padding-left: 62px;
+  }
+  .Yx1-earphones .img-box{
+    background-image: url("/assets/home/tablet/image-earphones-yx1.jpg");
+  }
+  .info-box{
+    height: 633px;
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 63px;
+  }
+  .info-box .info-img{
+    background-image: url("/assets/shared/tablet/image-best-gear.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .Yx1-earphones .text-box h1, .Yx1-earphones .text-box .see-product{
+    margin-left: 41px;
+  }
+  footer .links{
+    align-items: baseline;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .items-box{
+    gap: 120px;
+  }
+  .items-box .item{
+    flex-direction: column;
+    height: auto;
+    gap: 52px;
+  }
+  .items-box .item img{
+    width: 100%;
+    height: 350px;
+  }
+  .items-box .item .main-text-box{
+    text-align: center;
+    align-items: center;
+  }
+  .items-box .item-reverse .container{
+    justify-content: center;
+  }
+  .item-container .item{
+    gap: 50px;
+    height: 480px;
+  }
+  .item-container .item img{
+    width: 280px;
+    height: 480px;
+  }
+  .item-container .item h1{
+    font-size: 33px;
+  }
+  .item-container .item .increase-count h1{
+    font-size: 18px;
+  }
+  .item-container .item .main-text-box{
+    width: 340px;
+  }
+  .additional-info{
+    flex-direction: column;
+    gap: 120px;
+  }
+  .features{
+    width: 100%;
+  }
+  .in-the-box{
+    width: 100%;
+    justify-content: start;
+  }
+  .in-the-box ul:nth-child(1) {
+    flex-direction: row;
+    gap: 150px;
+  }
+  .item-img-box{
+    height: 368px;
+    gap: 20px;
+  }
+  .item-img-box div{
+    gap: 20px;
+  }
+  .item-img-box div img{
+    width: 100%;
+    height: 174px;
+  }
+  form{
+    flex-direction: column;
+  }
+  .summary{
+    width: 100% !important;
+    height: auto;
+    padding: 32px;
+  }
+}
+@media screen and (width < 768px) {
+  .card-box{
+    flex-direction: column;
+    height: auto;
+  }
+  .card{
+    height: 250px;
+  }
+  .card *{
+    transform: scale(0.9);
+  }
+  .card .card-img-box{
+    transform: scale(0.7);
+  }
+  .card .card-bg{
+    height: 165px;
+    transform: scale(1);
+  }
+  .Zx7-speaker{
+    background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .Yx1-earphones{
+    flex-direction: column;
+    height: auto;
+  }
+  .Yx1-earphones .img-box{
+    height: 200px;
+    background-image: url("/assets/home/mobile/image-earphones-yx1.jpg");
+  }
+  .Yx1-earphones .text-box{
+    height: 200px;
+  }
+  .info-box .info-img{
+    background-image: url("/assets/shared/mobile/image-best-gear.jpg");
+    height: 500px;
+    background-size: 100%;
+    background-position: center;
+  }
+  footer{
+    gap: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+  footer .links{
+    align-items: center;
+    gap: 50px;
+  }
+  footer .links ul{
+    flex-direction: column;
+  }
+  footer .footer-end{
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  footer .footer-end .social-media{
+    position: relative;
+    align-self: auto;
+    bottom: auto;
+  }
+  .items-box .item img{
+    height: 400px;
+  }
+  .item .main-text-box h1{
+    font-size: 40px;
+  }
+  .item-container .item{
+    flex-direction: column;
+    height: auto;
+  }
+  .item-container .item img{
+    width: 383px;
+    height: 383px;
+  }
+  .additional-info{
+    gap: 60px;
+  }
+  .in-the-box ul:nth-child(1){
+    flex-direction: column;
+    gap: 20px;
+  }
+  .item-img-box{
+    flex-direction: column;
+    height: auto;
+  }
+  .item-img-box img{
+    width: 100%;
+    height: 368px;
+  }
+  .item-img-box div{
+    width: 100%;
+  }
+  .item-img-box div img{
+    width: 100%;
+    height: 174px;
+  }
+  .recommendations{
+    flex-direction: column;
+  }
+  .input-box{
+    width: 100% !important;
+  }
+  .double-input-box{
+    flex-direction: column;
+    gap: 24px;
+  }
+  .popUp-summery-box{
+    flex-direction: column;
+  }
+  .grandTotal-box{
+    border-radius: 0 0 8px 8px;
+  }
+  .wrapper{
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
 }

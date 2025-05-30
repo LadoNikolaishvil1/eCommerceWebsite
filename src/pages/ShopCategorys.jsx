@@ -1,23 +1,41 @@
 import data from "../data.json";
-import {
-  useParams,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import InfoBox from "../components/InfoBox";
 import CardBox from "../components/CardBox";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
 
 const validCategories = ["headphones", "earphones", "speakers"];
 
 const ShopCategorys = () => {
   const { category } = useParams();
   const navigate = useNavigate();
+  const [device, setDevice] = useState();
 
   if (!validCategories.includes(category)) {
     return <Navigate to="/error" />;
   }
+
+  useEffect(() => {
+    const detectDevice = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setDevice("mobile");
+      } else if (width >= 768 && width <= 1024) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+      }
+    };
+
+    detectDevice();
+    window.addEventListener("resize", detectDevice);
+
+    console.log(device);
+
+    return () => window.removeEventListener("resize", detectDevice);
+  }, []);
 
   return (
     <main>
@@ -37,7 +55,7 @@ const ShopCategorys = () => {
                 className={`item ${index % 2 !== 0 ? "item-reverse" : ""}`}
                 key={item.id}
               >
-                <img src={item.image.desktop} alt="" />
+                <img src={item.categoryImage[device]} alt="" />
                 <div className="container">
                   <div className="main-text-box">
                     {item.new && <h2>NEW PRODUCT</h2>}

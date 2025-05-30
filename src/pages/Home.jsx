@@ -3,14 +3,34 @@ import CardBox from "../components/CardBox.jsx";
 import Footer from "../components/Footer.jsx";
 import InfoBox from "../components/InfoBox.jsx";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [device, setDevice] = useState()
 
   const navToItem = (id) => {
     navigate(`/shop/item/${id}`);
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    const detectDevice = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setDevice("mobile");
+      } else if (width >= 768 && width <= 1024) {
+        setDevice("tablet");
+      } else {
+        setDevice("desktop");
+      }
+    };
+
+    detectDevice();
+    window.addEventListener("resize", detectDevice);
+
+    return () => window.removeEventListener("resize", detectDevice);
+  }, []);
   return (
     <main>
       <div className="header-box">
@@ -42,7 +62,7 @@ const Home = () => {
             />
             <img
               className="speaker-img"
-              src="/assets/home/desktop/image-speaker-zx9.png"
+              src={`/assets/home/${device}/image-speaker-zx9.png`}
               alt=""
             />
             <div className="main-text-box">
