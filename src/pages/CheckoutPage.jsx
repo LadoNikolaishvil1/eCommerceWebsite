@@ -2,10 +2,10 @@ import { useRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { checkoutSchema } from "../validations/Checkout.validations.js";
-import Header from "../components/header";
-import Footer from "../components/Footer";
-import { useCart } from "../hooks/useCart";
-import CartItem from "../components/CartItem";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import { useCart } from "../hooks/useCart.jsx";
+import CartItem from "../components/CartItem.jsx";
 import { useNavigate } from "react-router-dom";
 import SummaryPopUp from "../components/SummaryPopUp.jsx";
 

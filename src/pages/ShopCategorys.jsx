@@ -1,9 +1,9 @@
 import data from "../data.json";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
-import Header from "../components/header";
-import InfoBox from "../components/InfoBox";
-import CardBox from "../components/CardBox";
-import Footer from "../components/Footer";
+import Header from "../components/Header.jsx";
+import InfoBox from "../components/InfoBox.jsx";
+import CardBox from "../components/CardBox.jsx";
+import Footer from "../components/Footer.jsx";
 import { useEffect, useState } from "react";
 
 const validCategories = ["headphones", "earphones", "speakers"];
