@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import data from "../data.json";
-import Header from "../components/header";
-import InfoBox from "../components/InfoBox";
-import CardBox from "../components/CardBox";
-import Footer from "../components/Footer";
+import Header from "../components/Header.jsx";
+import InfoBox from "../components/InfoBox.jsx";
+import CardBox from "../components/CardBox.jsx";
+import Footer from "../components/Footer.jsx";
 import {
   useParams,
   Navigate,

@@ -1,4 +1,4 @@
-import Header from "../components/header.jsx";
+import Header from "../components/Header.jsx";
 import CardBox from "../components/CardBox.jsx";
 import Footer from "../components/Footer.jsx";
 import InfoBox from "../components/InfoBox.jsx";
